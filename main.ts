@@ -220,6 +220,16 @@ function animateIdle () {
     animation.attachAnimation(hero, mainIdleRight)
     mainIdleRight.addAnimationFrame(assets.image`norsys`)
 }
+scene.onOverlapTile(SpriteKind.Player, assets.tile`drapeau de la fin`, function (sprite3, location) {
+    info.changeLifeBy(1)
+    currentLevel += 1
+    if (hasNextLevel()) {
+        game.splash("Nouveau niveau débloquer")
+        setLevelTileMap(currentLevel)
+    } else {
+        game.over(true, effects.confetti)
+    }
+})
 function setLevelTileMap (level: number) {
     clearGame()
     if (level == 0) {
@@ -391,7 +401,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Coin, function (sprite2, otherSp
 })
 function createEnemies () {
     // enemy that moves back and forth
-    for (let value5 of tiles.getTilesByType(assets.tile`tile4`)) {
+    for (let value5 of tiles.getTilesByType(assets.tile`myTile`)) {
         bumper = sprites.create(img`
             8 8 8 8 8 8 8 8 8 . . . . . . . 
             8 8 8 8 8 8 8 8 8 8 8 8 . . . . 
@@ -408,7 +418,7 @@ function createEnemies () {
             . . . . . . 5 5 5 5 5 5 5 f 5 5 
             . . . . . . 5 5 5 f f 5 5 5 5 5 
             . . . . . . 5 5 5 5 f f f f f f 
-            . . . . . . . 5 5 5 5 5 5 5 5 . 
+            . . . . . . . 5 5 5 5 5 5 5 5 5 
             `, SpriteKind.Bumper)
         tiles.placeOnTile(bumper, value5)
         tiles.setTileAt(value5, assets.tile`tile0`)
@@ -445,16 +455,6 @@ function createEnemies () {
         animation.attachAnimation(flier, flierIdle)
     }
 }
-scene.onOverlapTile(SpriteKind.Player, assets.tile`tile1`, function (sprite3, location) {
-    info.changeLifeBy(1)
-    currentLevel += 1
-    if (hasNextLevel()) {
-        game.splash("Nouveau niveau débloquer")
-        setLevelTileMap(currentLevel)
-    } else {
-        game.over(true, effects.confetti)
-    }
-})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Flier, function (sprite4, otherSprite3) {
     info.changeLifeBy(-1)
     sprite4.say("Ow!", invincibilityPeriod * 1.5)
