@@ -79,6 +79,25 @@ f f f f 8 8 8 7 8 2 f f f f f f
 f f f 8 8 f 7 7 2 2 f f f f f 7 
 7 7 f 8 f 7 7 2 2 f f f f f 7 7 
 `;
+            case "image5":
+            case "souris":return img`
+. . . . . f f . . . . . . . . . 
+. . . . f 5 5 f . . . . . . . . 
+. . . . f 5 5 f . . . . . . . . 
+. . . . f 3 3 f f f . . . . . . 
+. . . . f 3 3 f 3 3 f . . . . . 
+. . . . f 6 6 f 6 6 f f f f f . 
+. . . . f 6 6 f 6 6 f 6 6 f 6 f 
+f f f . f 4 4 f 4 4 f 4 4 f 4 f 
+f 4 4 f f 4 4 f 4 4 f 4 4 f 4 f 
+f 8 8 8 8 8 8 8 8 8 8 8 8 8 8 f 
+. f 8 8 8 8 8 8 8 8 8 8 8 8 8 f 
+. . f 7 7 7 7 7 7 7 7 7 7 7 7 f 
+. . . f 7 7 7 7 7 7 7 7 7 7 7 f 
+. . . . f a a a a a a a a a f . 
+. . . . . f a a a a a a a f f . 
+. . . . . . f f f f f f f f . . 
+`;
         }
         return null;
     })
