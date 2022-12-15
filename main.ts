@@ -279,20 +279,44 @@ function initializeFlierAnimations () {
         f 5 5 5 e e e e e e e e e 5 5 f 
         f 5 5 e e e e e e e e e e e 5 f 
         `)
-    flierFlying.addAnimationFrame(assets.image`myImage2`)
+    flierFlying.addAnimationFrame(img`
+        . . . f f f f f f f f f f . . . 
+        . . f 5 5 5 5 5 5 5 5 5 5 f . . 
+        . f 5 5 5 5 5 5 5 5 5 5 5 5 f . 
+        f 5 5 5 5 5 5 5 5 5 5 5 5 5 5 f 
+        f 5 5 1 1 1 1 5 1 1 1 1 5 5 5 f 
+        f 5 5 1 1 1 1 5 1 1 1 1 1 5 5 f 
+        f 5 5 1 1 f 1 5 1 f 1 1 1 5 5 f 
+        f 5 5 5 1 1 1 5 1 1 1 1 1 5 5 f 
+        f 5 5 5 1 1 5 5 5 1 1 1 5 5 5 f 
+        f 5 5 5 5 5 5 5 5 5 5 5 5 5 5 f 
+        f 5 5 5 5 5 5 5 5 5 5 5 5 5 5 f 
+        f 5 5 5 5 5 5 5 5 5 5 5 5 5 5 f 
+        f 5 5 5 5 e e e e e e e 5 5 5 f 
+        f 5 5 5 e e e e e e e e e 5 5 f 
+        f 5 5 5 e e e e e e e e e 5 5 f 
+        f 5 5 e e e e e e e e e e e 5 f 
+        `)
     flierIdle = animation.createAnimation(ActionKind.Idle, 100)
-    flierIdle.addAnimationFrame(assets.image`myImage2`)
+    flierIdle.addAnimationFrame(img`
+        . . . f f f f f f f f f f . . . 
+        . . f 5 5 5 5 5 5 5 5 5 5 f . . 
+        . f 5 5 5 5 5 5 5 5 5 5 5 5 f . 
+        f 5 5 5 5 5 5 5 5 5 5 5 5 5 5 f 
+        f 5 5 1 1 1 1 5 1 1 1 1 5 5 5 f 
+        f 5 5 1 1 1 1 5 1 1 1 1 1 5 5 f 
+        f 5 5 1 1 f 1 5 1 f 1 1 1 5 5 f 
+        f 5 5 5 1 1 1 5 1 1 1 1 1 5 5 f 
+        f 5 5 5 1 1 5 5 5 1 1 1 5 5 5 f 
+        f 5 5 5 5 5 5 5 5 5 5 5 5 5 5 f 
+        f 5 5 5 5 5 5 5 5 5 5 5 5 5 5 f 
+        f 5 5 5 5 5 5 5 5 5 5 5 5 5 5 f 
+        f 5 5 5 5 e e e e e e e 5 5 5 f 
+        f 5 5 5 e e e e e e e e e 5 5 f 
+        f 5 5 5 e e e e e e e e e 5 5 f 
+        f 5 5 e e e e e e e e e e e 5 f 
+        `)
 }
-scene.onOverlapTile(SpriteKind.Player, assets.tile`fin`, function (sprite3, location) {
-    info.changeLifeBy(1)
-    currentLevel += 1
-    if (hasNextLevel()) {
-        game.splash("Nouveau niveau débloquer")
-        setLevelTileMap(currentLevel)
-    } else {
-        game.over(true, effects.confetti)
-    }
-})
 function animateRun () {
     mainRunLeft = animation.createAnimation(ActionKind.RunningLeft, 100)
     animation.attachAnimation(hero, mainRunLeft)
@@ -421,6 +445,16 @@ function createEnemies () {
         animation.attachAnimation(flier, flierIdle)
     }
 }
+scene.onOverlapTile(SpriteKind.Player, assets.tile`tile1`, function (sprite3, location) {
+    info.changeLifeBy(1)
+    currentLevel += 1
+    if (hasNextLevel()) {
+        game.splash("Nouveau niveau débloquer")
+        setLevelTileMap(currentLevel)
+    } else {
+        game.over(true, effects.confetti)
+    }
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Flier, function (sprite4, otherSprite3) {
     info.changeLifeBy(-1)
     sprite4.say("Ow!", invincibilityPeriod * 1.5)
