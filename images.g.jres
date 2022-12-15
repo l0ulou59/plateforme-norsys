@@ -4,11 +4,6 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "myImage"
     },
-    "image2": {
-        "data": "hwQQABAAAAB3d/f/////f3f///////9/////d3f3/////3///3//iP//f///f4/4/494iP9/j3//+H//+H+Pd//4f//4f3cn//j/coiIiCL/+C//+C8i8v/4L//4L////48oiP8v/////y///y//////L///L///9///IiLy/393////////dw==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "norsys"
-    },
     "image3": {
         "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
         "mimeType": "image/x-mkcd-f4",
@@ -18,6 +13,11 @@
         "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8AAAAAAAAAD/AAAAAAAA8P8A//////////CIESL/////8IgRIv/////wiBHy//////CIEfIAAPD/AI8RDwAAAP8AjxEPAAAA8ADw8QAAAAAAAAAPAAAAAAAAAAAAAAAAAA==",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "myImage1"
+    },
+    "image2": {
+        "data": "hwQQABAAAAB3d/f/////f3f///////9/////d3f3/////3///3//iP//f///f4/4/494iP9/j3//+H//+H+Pd//4f//4f3cn//j/coiIiCL/+C//+C8i8v/4L//4L////48oiP8v/////y///y//////L///L///9///IiLy/393////////dw==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "norsys"
     },
     "*": {
         "mimeType": "image/x-mkcd-f4",

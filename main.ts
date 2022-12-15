@@ -401,7 +401,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Coin, function (sprite2, otherSp
 })
 function createEnemies () {
     // enemy that moves back and forth
-    for (let value5 of tiles.getTilesByType(assets.tile`myTile`)) {
+    for (let value5 of tiles.getTilesByType(assets.tile`myTille`)) {
         bumper = sprites.create(img`
             8 8 8 8 8 8 8 8 8 . . . . . . . 
             8 8 8 8 8 8 8 8 8 8 8 8 . . . . 
@@ -857,6 +857,12 @@ game.onUpdate(function () {
         animation.setAction(hero, ActionKind.IdleRight)
     }
 })
+// Reset double jump when standing on wall
+game.onUpdate(function () {
+    if (hero.isHittingTile(CollisionDirection.Bottom)) {
+        canDoubleJump = true
+    }
+})
 // Flier movement
 game.onUpdate(function () {
     for (let value8 of sprites.allOfKind(SpriteKind.Flier)) {
@@ -877,12 +883,6 @@ game.onUpdate(function () {
             value8.vx = 0
             animation.setAction(value8, ActionKind.Idle)
         }
-    }
-})
-// Reset double jump when standing on wall
-game.onUpdate(function () {
-    if (hero.isHittingTile(CollisionDirection.Bottom)) {
-        canDoubleJump = true
     }
 })
 // bumper movement

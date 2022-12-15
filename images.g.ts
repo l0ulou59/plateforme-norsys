@@ -22,25 +22,6 @@ namespace myImages {
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `;
-            case "image2":
-            case "norsys":return img`
-7 7 f f f f f f f f f f f f 7 7 
-7 7 f f f f f f f f f f f f f 7 
-7 f f f f f 8 8 8 8 8 f f f f f 
-7 f f f f 8 f f f f f 8 f f f f 
-7 f f f f 8 f f f f f 8 f f f f 
-f f f 7 7 7 7 7 f 2 2 2 2 2 f f 
-f f 7 f f 8 f f 2 f f 8 f f 2 f 
-f f 7 f f 8 f f 7 f f 8 f f 2 f 
-f f 7 f f f 8 8 8 8 8 f f f 2 f 
-f f 7 f f f f f 8 f f f f f 2 f 
-f f 7 f f f f f 8 f f f f f 2 f 
-f f f 7 7 7 7 7 8 2 2 2 2 2 f f 
-f f f f f f f 7 8 2 f f f f f f 
-f f f f 8 8 8 7 8 2 f f f f f f 
-f f f 8 8 f 7 7 2 2 f f f f f 7 
-7 7 f 8 f 7 7 2 2 f f f f f 7 7 
-`;
             case "image3":
             case "myImage0":return img`
 . . . . . . . . . . . . . . . . 
@@ -78,6 +59,25 @@ f f f 8 8 f 7 7 2 2 f f f f f 7
 . . . . . f f f f f f . . . . . 
 . . . . f f f f f f f f . . . . 
 . . . f f f f f f f f f f . . . 
+`;
+            case "image2":
+            case "norsys":return img`
+7 7 f f f f f f f f f f f f 7 7 
+7 7 f f f f f f f f f f f f f 7 
+7 f f f f f 8 8 8 8 8 f f f f f 
+7 f f f f 8 f f f f f 8 f f f f 
+7 f f f f 8 f f f f f 8 f f f f 
+f f f 7 7 7 7 7 f 2 2 2 2 2 f f 
+f f 7 f f 8 f f 2 f f 8 f f 2 f 
+f f 7 f f 8 f f 7 f f 8 f f 2 f 
+f f 7 f f f 8 8 8 8 8 f f f 2 f 
+f f 7 f f f f f 8 f f f f f 2 f 
+f f 7 f f f f f 8 f f f f f 2 f 
+f f f 7 7 7 7 7 8 2 2 2 2 2 f f 
+f f f f f f f 7 8 2 f f f f f f 
+f f f f 8 8 8 7 8 2 f f f f f f 
+f f f 8 8 f 7 7 2 2 f f f f f 7 
+7 7 f 8 f 7 7 2 2 f f f f f 7 7 
 `;
         }
         return null;
