@@ -825,10 +825,14 @@ levelCount = 8
 currentLevel = 0
 setLevelTileMap(currentLevel)
 giveIntroduction()
-// Reset double jump when standing on wall
+// bumper movement
 game.onUpdate(function () {
-    if (hero.isHittingTile(CollisionDirection.Bottom)) {
-        canDoubleJump = true
+    for (let value9 of sprites.allOfKind(SpriteKind.Bumper)) {
+        if (value9.isHittingTile(CollisionDirection.Left)) {
+            value9.vx = Math.randomRange(30, 60)
+        } else if (value9.isHittingTile(CollisionDirection.Right)) {
+            value9.vx = Math.randomRange(-60, -30)
+        }
     }
 })
 // set up hero animations
@@ -863,14 +867,10 @@ game.onUpdate(function () {
         animation.setAction(hero, ActionKind.IdleRight)
     }
 })
-// bumper movement
+// Reset double jump when standing on wall
 game.onUpdate(function () {
-    for (let value9 of sprites.allOfKind(SpriteKind.Bumper)) {
-        if (value9.isHittingTile(CollisionDirection.Left)) {
-            value9.vx = Math.randomRange(30, 60)
-        } else if (value9.isHittingTile(CollisionDirection.Right)) {
-            value9.vx = Math.randomRange(-60, -30)
-        }
+    if (hero.isHittingTile(CollisionDirection.Bottom)) {
+        canDoubleJump = true
     }
 })
 // Flier movement
