@@ -134,7 +134,7 @@ namespace myTiles {
             case "tile9":return tile9;
             case "drapeau de la fin":
             case "tile1":return tile1;
-            case "myTille":
+            case "myTile":
             case "tile8":return tile8;
         }
         return null;
