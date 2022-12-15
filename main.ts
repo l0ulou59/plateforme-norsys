@@ -13,7 +13,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Bumper, function (sprite, otherS
         music.powerUp.play()
     } else {
         info.changeLifeBy(-1)
-        sprite.say("Ow!", invincibilityPeriod)
+        sprite.say("Noooooon !", invincibilityPeriod)
         music.powerDown.play()
     }
     pause(invincibilityPeriod)
