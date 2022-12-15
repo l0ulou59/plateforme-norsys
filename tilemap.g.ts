@@ -5,8 +5,6 @@ namespace myTiles {
     //% fixedInstance jres blockIdentity=images._tile
     export const tile0 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
-    export const tile1 = image.ofBuffer(hex``);
-    //% fixedInstance jres blockIdentity=images._tile
     export const tile2 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
     export const tile3 = image.ofBuffer(hex``);
@@ -18,6 +16,12 @@ namespace myTiles {
     export const tile6 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
     export const tile7 = image.ofBuffer(hex``);
+    //% fixedInstance jres blockIdentity=images._tile
+    export const tile8 = image.ofBuffer(hex``);
+    //% fixedInstance jres blockIdentity=images._tile
+    export const tile9 = image.ofBuffer(hex``);
+    //% fixedInstance jres blockIdentity=images._tile
+    export const tile1 = image.ofBuffer(hex``);
 
     helpers._registerFactory("tilemap", function(name: string) {
         switch(helpers.stringTrim(name)) {
@@ -117,7 +121,6 @@ namespace myTiles {
         switch(helpers.stringTrim(name)) {
             case "transparency16":return transparency16;
             case "tile0":return tile0;
-            case "tile1":return tile1;
             case "tile2":return tile2;
             case "tile3":return tile3;
             case "tile4":return tile4;
@@ -126,6 +129,12 @@ namespace myTiles {
             case "tile6":return tile6;
             case "homer":
             case "tile7":return tile7;
+            case "myTile":
+            case "tile8":return tile8;
+            case "bart":
+            case "tile9":return tile9;
+            case "fin":
+            case "tile1":return tile1;
         }
         return null;
     })
