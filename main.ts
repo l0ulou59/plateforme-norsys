@@ -13,7 +13,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Bumper, function (sprite, otherS
         music.powerUp.play()
     } else {
         info.changeLifeBy(-1)
-        sprite.say("Ow!", invincibilityPeriod)
+        sprite.say("Noooooon !", invincibilityPeriod)
         music.powerDown.play()
     }
     pause(invincibilityPeriod)
@@ -220,6 +220,16 @@ function animateIdle () {
     animation.attachAnimation(hero, mainIdleRight)
     mainIdleRight.addAnimationFrame(assets.image`norsys`)
 }
+scene.onOverlapTile(SpriteKind.Player, assets.tile`drapeau de la fin`, function (sprite3, location) {
+    info.changeLifeBy(1)
+    currentLevel += 1
+    if (hasNextLevel()) {
+        game.splash("Nouveau niveau débloquer")
+        setLevelTileMap(currentLevel)
+    } else {
+        game.over(true, effects.confetti)
+    }
+})
 function setLevelTileMap (level: number) {
     clearGame()
     if (level == 0) {
@@ -391,7 +401,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Coin, function (sprite2, otherSp
 })
 function createEnemies () {
     // enemy that moves back and forth
-    for (let value5 of tiles.getTilesByType(assets.tile`tile4`)) {
+    for (let value5 of tiles.getTilesByType(assets.tile`myTille`)) {
         bumper = sprites.create(img`
             8 8 8 8 8 8 8 8 8 . . . . . . . 
             8 8 8 8 8 8 8 8 8 8 8 8 . . . . 
@@ -408,7 +418,7 @@ function createEnemies () {
             . . . . . . 5 5 5 5 5 5 5 f 5 5 
             . . . . . . 5 5 5 f f 5 5 5 5 5 
             . . . . . . 5 5 5 5 f f f f f f 
-            . . . . . . . 5 5 5 5 5 5 5 5 . 
+            . . . . . . . 5 5 5 5 5 5 5 5 5 
             `, SpriteKind.Bumper)
         tiles.placeOnTile(bumper, value5)
         tiles.setTileAt(value5, assets.tile`tile0`)
@@ -445,15 +455,57 @@ function createEnemies () {
         animation.attachAnimation(flier, flierIdle)
     }
 }
-scene.onOverlapTile(SpriteKind.Player, assets.tile`tile1`, function (sprite3, location) {
-    info.changeLifeBy(1)
-    currentLevel += 1
-    if (hasNextLevel()) {
-        game.splash("Nouveau niveau débloquer")
-        setLevelTileMap(currentLevel)
-    } else {
-        game.over(true, effects.confetti)
-    }
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    game.setDialogFrame(img`
+        ...cc..............................cc.....
+        ..c55c..bbbb...bbbbb...bbbbb......c55c....
+        .cb55bcbdddbbbbbdddbbbbbdddbbbbbbcb55bc...
+        b555555bbdddb111bdddb111bdddb11db555555b..
+        bb5555bbbbdb11111bdb11111bdb1111bb5555bb..
+        cb5555bcddd11111ddd11111ddd11111cb5555bc..
+        .c5bb5c1111d111d111d111d111d111ddc5bb5c...
+        .cbbbbc11111111111111111111111111cbbbbc...
+        ..b1111111111111111111111111111111dddbb...
+        ..b11111111111111111111111111111111dbbdb..
+        ..bb1111111111111111111111111111111dbddb..
+        .bbdb1d1111111111111111111111111111ddddb..
+        .bdddd1111111111111111111111111111d1bdbb..
+        .bddbd1111111111111111111111111111111bb...
+        .bdb1d11111111111111111111111111111111b...
+        .bb111d1111111111111111111111111111111b...
+        ..b1111111111111111111111111111111d111bb..
+        ..b11111111111111111111111111111111d1bdb..
+        ..bb1111111111111111111111111111111dbddb..
+        .bbdb1d1111111111111111111111111111ddddb..
+        .bdddd1111111111111111111111111111d1bdbb..
+        .bddbd1111111111111111111111111111111bb...
+        .bdb1d11111111111111111111111111111111b...
+        .bb111d1111111111111111111111111111111b...
+        ..b1111111111111111111111111111111d111bb..
+        ..b11111111111111111111111111111111d1bdb..
+        ..bb1111111111111111111111111111111dbddb..
+        .bbdb1d1111111111111111111111111111ddddb..
+        .bdddd1111111111111111111111111111d1bdbb..
+        .bddbd1111111111111111111111111111111bb...
+        .bdbb111111111111111111111111111111111b...
+        .bbbd111111111111111111111111111111111b...
+        ..bcc11111111111111111111111111111dccdb...
+        ..c55c1111111d111d111d111d111d1111c55cb...
+        .cb55bcdd11111ddd11111ddd11111dddcb55bc...
+        b555555bd1111bdb11111bdb11111bdbb555555b..
+        bb5555bbdd11bdddb111bdddb111bdddbb5555bb..
+        cb5555bcbbbbbbdddbbbbbdddbbbbbddcb5555bc..
+        .c5bb5c......bbbbb...bbbbb...bbbbc5bb5c...
+        .cbbbbc..........................cbbbbc...
+        ..........................................
+        ..........................................
+        `)
+    game.setDialogCursor(assets.image`souris`)
+    game.setDialogTextColor(8)
+    game.showLongText("Salut, sache que ce projet est aussi disponible sur github en open-source", DialogLayout.Full)
+    game.showLongText("(le lien: https://github.com/l0ulou59/plateforme-norsys)", DialogLayout.Full)
+    game.showLongText("Et, il est aussi disponible en ligne sur un site", DialogLayout.Full)
+    game.showLongText("(https://l0ulou59.github.io/plateforme-norsys/)", DialogLayout.Full)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Flier, function (sprite4, otherSprite3) {
     info.changeLifeBy(-1)
@@ -825,6 +877,16 @@ levelCount = 8
 currentLevel = 0
 setLevelTileMap(currentLevel)
 giveIntroduction()
+// bumper movement
+game.onUpdate(function () {
+    for (let value9 of sprites.allOfKind(SpriteKind.Bumper)) {
+        if (value9.isHittingTile(CollisionDirection.Left)) {
+            value9.vx = Math.randomRange(30, 60)
+        } else if (value9.isHittingTile(CollisionDirection.Right)) {
+            value9.vx = Math.randomRange(-60, -30)
+        }
+    }
+})
 // set up hero animations
 game.onUpdate(function () {
     if (hero.vx < 0) {
@@ -857,6 +919,12 @@ game.onUpdate(function () {
         animation.setAction(hero, ActionKind.IdleRight)
     }
 })
+// Reset double jump when standing on wall
+game.onUpdate(function () {
+    if (hero.isHittingTile(CollisionDirection.Bottom)) {
+        canDoubleJump = true
+    }
+})
 // Flier movement
 game.onUpdate(function () {
     for (let value8 of sprites.allOfKind(SpriteKind.Flier)) {
@@ -876,22 +944,6 @@ game.onUpdate(function () {
             value8.vy = -20
             value8.vx = 0
             animation.setAction(value8, ActionKind.Idle)
-        }
-    }
-})
-// Reset double jump when standing on wall
-game.onUpdate(function () {
-    if (hero.isHittingTile(CollisionDirection.Bottom)) {
-        canDoubleJump = true
-    }
-})
-// bumper movement
-game.onUpdate(function () {
-    for (let value9 of sprites.allOfKind(SpriteKind.Bumper)) {
-        if (value9.isHittingTile(CollisionDirection.Left)) {
-            value9.vx = Math.randomRange(30, 60)
-        } else if (value9.isHittingTile(CollisionDirection.Right)) {
-            value9.vx = Math.randomRange(-60, -30)
         }
     }
 })
