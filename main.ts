@@ -401,7 +401,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Coin, function (sprite2, otherSp
 })
 function createEnemies () {
     // enemy that moves back and forth
-    for (let value5 of tiles.getTilesByType(assets.tile`myTille`)) {
+    for (let value5 of tiles.getTilesByType(assets.tile`myTile`)) {
         bumper = sprites.create(img`
             8 8 8 8 8 8 8 8 8 . . . . . . . 
             8 8 8 8 8 8 8 8 8 8 8 8 . . . . 
