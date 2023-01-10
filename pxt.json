@@ -1,6 +1,6 @@
 {
     "name": "Plateforme #2 - Copier",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "",
     "dependencies": {
         "device": "*",
