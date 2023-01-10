@@ -202,7 +202,7 @@ function attemptJump () {
         hero.vy = -4 * pixelsToMeters
     } else if (canDoubleJump) {
         doubleJumpSpeed = -3 * pixelsToMeters
-        // Good double jump
+        // Bon double saut
         if (hero.vy >= -40) {
             doubleJumpSpeed = -4.5 * pixelsToMeters
             hero.startEffect(effects.trail, 500)
@@ -429,7 +429,7 @@ function createEnemies () {
             bumper.vx = Math.randomRange(-60, -30)
         }
     }
-    // enemy that flies at player
+    // enemis volent vers le joeur
     for (let value6 of tiles.getTilesByType(assets.tile`homer`)) {
         flier = sprites.create(img`
             . . . f f f f f f f f f f . . . 
@@ -744,8 +744,8 @@ class ActionKind {
 }
 ActionKind.__initActionKind()
 hero = sprites.create(assets.image`norsys`, SpriteKind.Player)
-// how long to pause between each contact with a
-// single enemy
+// combien et la pause entre chaque ennemi
+// un ennemi
 invincibilityPeriod = 600
 pixelsToMeters = 30
 gravity = 9.81 * pixelsToMeters
@@ -887,7 +887,7 @@ game.onUpdate(function () {
         }
     }
 })
-// set up hero animations
+// setup les animations du héros
 game.onUpdate(function () {
     if (hero.vx < 0) {
         heroFacingLeft = true
@@ -919,13 +919,13 @@ game.onUpdate(function () {
         animation.setAction(hero, ActionKind.IdleRight)
     }
 })
-// Reset double jump when standing on wall
+// Reset le double saut quand on est sur un mur
 game.onUpdate(function () {
     if (hero.isHittingTile(CollisionDirection.Bottom)) {
         canDoubleJump = true
     }
 })
-// Flier movement
+// Mouvement de vol
 game.onUpdate(function () {
     for (let value8 of sprites.allOfKind(SpriteKind.Flier)) {
         if (Math.abs(value8.x - hero.x) < 60) {
