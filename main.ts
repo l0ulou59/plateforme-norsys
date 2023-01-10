@@ -62,7 +62,7 @@ function giveIntroduction () {
         `)
     showInstruction("Bienvenue !")
     showInstruction("Ici, le but du jeu est de réussir à finir tous les niveaux en restant en vie")
-    showInstruction("Ta mission, réussir à éliminier toutes ces créatures génétiquement modifiés et récupérer toutes les pièces")
+    showInstruction("Ta mission, réussir à éliminer toutes ces créatures génétiquement modifiés et récupérer toutes les pièces")
     showInstruction("Bouge avec les flèches du bas et du haut.")
     showInstruction("Saute avec la touche espace ou le bouton A")
     showInstruction("Fait un double saut en cliquant 2 fois")
